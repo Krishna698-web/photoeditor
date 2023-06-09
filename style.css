@@ -4,7 +4,11 @@
   box-sizing: border-box;
 }
 
-img {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* img {
   height: 10rem;
 }
 
@@ -15,4 +19,4 @@ img {
   color: black;
   font-weight: bold;
   border-radius: 5px;
-}
+} */

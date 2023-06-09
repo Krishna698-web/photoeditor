@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container flex w-2 bg-black">
       <div id="image_uploader">
         <input
           type="file"
@@ -22,6 +22,14 @@
       <div id="image_downloader">
         <a href="" id="download_image">Download</a>
       </div>
+    </div>
+    <div style="margin-top: 2rem">
+      Range: <span id="span">0</span>
+      <div class="field">
+        <label for="inputRange">Value:</label>
+        <input type="text" id="inputRange" value="0" />
+      </div>
+      <input type="range" id="range" value="0" min="0" max="100" />
     </div>
     <script src="script.js"></script>
   </body>

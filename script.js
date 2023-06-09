@@ -23,3 +23,18 @@ download_image.addEventListener("click", (e) => {
 
   console.log(download_image.href);
 });
+
+// Slider Ranging
+const range = document.getElementById("range");
+const inputRange = document.getElementById("inputRange");
+const span = document.getElementById("span");
+
+range.oninput = () => {
+  span.innerHTML = range.value + " %";
+  inputRange.value = range.value;
+  image.style.height = `${range.value * 10}px`;
+};
+
+inputRange.oninput = () => {
+  range.value = inputRange.value;
+};
