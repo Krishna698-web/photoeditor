@@ -42,26 +42,33 @@ inputRange.oninput = () => {
   range.value = inputRange.value;
 };
 
+let imageFilters = " ";
 opacity.onclick = () => {
   range.value = 0;
   range.oninput = () => {
     image.style.filter = `opacity(${range.value}%)`;
-    console.log(image.style.filter);
+    // console.log(image.style.filter);
   };
+  imageFilters += image.style.filter;
+  // console.log(imageFilters);
 };
 
 grayscale.onclick = () => {
   range.value = 0;
   range.oninput = () => {
     image.style.filter = `grayscale(${range.value}%)`;
-    console.log(image.style.filter);
+    // console.log(image.style.filter);
   };
+  imageFilters += image.style.filter;
+  // console.log(imageFilters);
 };
 
 brightness.onclick = () => {
   range.value = 0;
   range.oninput = () => {
     image.style.filter = `brightness(${range.value}%)`;
-    console.log(image.style.filter);
+    // console.log(image.style.filter);
   };
+  imageFilters += image.style.filter;
+  // console.log(imageFilters);
 };

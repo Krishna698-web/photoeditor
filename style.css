@@ -26,3 +26,7 @@ body {
   font-weight: bold;
   border-radius: 5px;
 } */
+
+.image {
+  filter: brightness(40%) grayscale(20%);
+}
