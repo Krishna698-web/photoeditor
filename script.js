@@ -28,13 +28,40 @@ download_image.addEventListener("click", (e) => {
 const range = document.getElementById("range");
 const inputRange = document.getElementById("inputRange");
 const span = document.getElementById("span");
+const opacity = document.getElementById("opacity");
+const grayscale = document.getElementById("grayscale");
+const brightness = document.getElementById("brightness");
 
 range.oninput = () => {
   span.innerHTML = range.value + " %";
   inputRange.value = range.value;
-  image.style.height = `${range.value * 10}px`;
+  // image.style.height = `${range.value * 10}px`;
 };
 
 inputRange.oninput = () => {
   range.value = inputRange.value;
+};
+
+opacity.onclick = () => {
+  range.value = 0;
+  range.oninput = () => {
+    image.style.filter = `opacity(${range.value}%)`;
+    console.log(image.style.filter);
+  };
+};
+
+grayscale.onclick = () => {
+  range.value = 0;
+  range.oninput = () => {
+    image.style.filter = `grayscale(${range.value}%)`;
+    console.log(image.style.filter);
+  };
+};
+
+brightness.onclick = () => {
+  range.value = 0;
+  range.oninput = () => {
+    image.style.filter = `brightness(${range.value}%)`;
+    console.log(image.style.filter);
+  };
 };
