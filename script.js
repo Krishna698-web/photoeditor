@@ -43,6 +43,7 @@ inputRange.oninput = () => {
 };
 
 let imageFilters = " ";
+
 opacity.onclick = () => {
   range.value = 0;
   range.oninput = () => {
@@ -66,7 +67,7 @@ grayscale.onclick = () => {
 brightness.onclick = () => {
   range.value = 0;
   range.oninput = () => {
-    image.style.filter = `brightness(${range.value}%)`;
+    image.style.filter = `brightness(${+range.value + 100}%)`;
     // console.log(image.style.filter);
   };
   imageFilters += image.style.filter;
