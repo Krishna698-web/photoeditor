@@ -37,68 +37,93 @@ range.oninput = () => {
 };
 
 // Initial values
-let imageFilters = " ";
+let imageFilters = "";
 
 let opacity_val = 0;
 let grayscale_val = 0;
 let brightness_val = 0;
 
-opacity.onclick = () => {
+const genericFilterHandler = (propertyVal) => {
   span.innerHTML = opacity_val;
   range.value = opacity_val;
 
+  const sliced = imageFilters.slice(
+    imageFilters.indexOf(propertyVal), //'propertyVal: opacity'
+    imageFilters.indexOf(" ")
+  );
+
+  // console.log("imageFilters: " + imageFilters);
   range.oninput = () => {
-    image.style.filter = `${imageFilters} opacity(${range.value}%)`;
+    if (!imageFilters.includes(sliced)) {
+      image.style.filter = `${imageFilters} ${propertyVal}(${range.value}%)`;
+    } else {
+      imageFilters = imageFilters.replace(
+        sliced,
+        `${propertyVal}(${range.value}%)`
+      );
+      console.log(imageFilters);
+      image.style.filter = imageFilters;
+    }
+
     span.innerHTML = range.value;
     opacity_val = range.value;
   };
 
   imageFilters = image.style.filter;
-  // console.log("opacity: " + imageFilters);
+  console.log("last/previous image filters: ", imageFilters);
+};
+
+opacity.onclick = () => {
+  genericFilterHandler("opacity");
 };
 
 grayscale.onclick = () => {
-  span.innerHTML = grayscale_val;
-  range.value = grayscale_val;
-
-  range.oninput = () => {
-    image.style.filter = `${imageFilters} grayscale(${range.value}%)`;
-    span.innerHTML = range.value;
-    grayscale_val = range.value;
-  };
-
-  imageFilters = image.style.filter;
-  // console.log("grayscale: " + imageFilters);
+  genericFilterHandler("grayscale");
 };
 
 brightness.onclick = () => {
-  span.innerHTML = brightness_val;
-  range.value = brightness_val;
-
-  range.oninput = () => {
-    image.style.filter = `${imageFilters} brightness(${+range.value + 100}%)`;
-    span.innerHTML = range.value;
-    brightness_val = range.value;
-  };
-
-  imageFilters = image.style.filter;
-  // console.log("brightness: " + imageFilters);
-  // console.log("brightness: " + image.style.filter);
+  genericFilterHandler("brightness");
 };
+
+// grayscale.onclick = () => {
+//   span.innerHTML = grayscale_val;
+//   range.value = grayscale_val;
+
+//   range.oninput = () => {
+//     image.style.filter = `${imageFilters} grayscale(${range.value}%)`;
+//     span.innerHTML = range.value;
+//     grayscale_val = range.value;
+//   };
+
+//   imageFilters = image.style.filter;
+//   // console.log("grayscale: " + imageFilters);
+// };
+
+// brightness.onclick = () => {
+//   span.innerHTML = brightness_val;
+//   range.value = brightness_val;
+
+//   range.oninput = () => {
+//     image.style.filter = `${imageFilters} brightness(${+range.value + 100}%)`;
+//     span.innerHTML = range.value;
+//     brightness_val = range.value;
+//   };
+
+//   imageFilters = image.style.filter;
+//   // console.log("brightness: " + imageFilters);
+//   // console.log("brightness: " + image.style.filter);
+// };
 
 const showButton = document.getElementById("show");
 showButton.onclick = () => {
-  let arr = imageFilters.split(" ");
-  // const sliced = arr[0].slice();
-  // const replaced = imageFilters.replace(sliced, "new value");
-  // console.log(sliced);
-  // console.log(replaced);
-  console.log(imageFilters);
+  // console.log(imageFilters);
   const sliced = imageFilters.slice(
     imageFilters.indexOf("opacity"),
     imageFilters.indexOf(" ")
   );
   console.log(sliced);
+  // const replaced = imageFilters.replace(sliced, "new value");
+  // console.log(replaced);
   console.log(imageFilters);
   // console.log("showing:" + imageFilters.replace('opacity'.slice(0)));
 };
