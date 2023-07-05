@@ -13,7 +13,7 @@ input_file.addEventListener("change", () => {
 });
 
 download_image.addEventListener("click", (e) => {
-  //   e.preventDefault();
+  // e.preventDefault();
   if (download_image.href === "") {
     console.log("Upload an image");
   } else {
@@ -33,43 +33,55 @@ const grayscale = document.getElementById("grayscale");
 const brightness = document.getElementById("brightness");
 
 range.oninput = () => {
-  span.innerHTML = range.value + " %";
-  inputRange.value = range.value;
-  // image.style.height = `${range.value * 10}px`;
+  span.innerHTML = range.value;
 };
 
-inputRange.oninput = () => {
-  range.value = inputRange.value;
-};
-
+// Initial values
 let imageFilters = " ";
 
+let opacity_val = 0;
+let grayscale_val = 0;
+let brightness_val = 0;
+
 opacity.onclick = () => {
-  range.value = 0;
+  span.innerHTML = opacity_val;
+  range.value = opacity_val;
+
   range.oninput = () => {
-    image.style.filter = `opacity(${range.value}%)`;
-    // console.log(image.style.filter);
+    image.style.filter = `${imageFilters} opacity(${range.value}%)`;
+    span.innerHTML = range.value;
+    opacity_val = range.value;
   };
-  imageFilters += image.style.filter;
-  // console.log(imageFilters);
+
+  // imageFilters += image.style.filter;
+  console.log("opacity: " + imageFilters);
 };
 
 grayscale.onclick = () => {
-  range.value = 0;
+  span.innerHTML = grayscale_val;
+  range.value = grayscale_val;
+
   range.oninput = () => {
-    image.style.filter = `grayscale(${range.value}%)`;
-    // console.log(image.style.filter);
+    image.style.filter = `${imageFilters} grayscale(${range.value}%)`;
+    span.innerHTML = range.value;
+    grayscale_val = range.value;
   };
-  imageFilters += image.style.filter;
-  // console.log(imageFilters);
+
+  // imageFilters += image.style.filter;
+  console.log("grayscale: " + imageFilters);
 };
 
 brightness.onclick = () => {
-  range.value = 0;
+  span.innerHTML = brightness_val;
+  range.value = brightness_val;
+
   range.oninput = () => {
-    image.style.filter = `brightness(${+range.value + 100}%)`;
-    // console.log(image.style.filter);
+    image.style.filter = `${imageFilters} brightness(${+range.value + 100}%)`;
+    span.innerHTML = range.value;
+    brightness_val = range.value;
   };
-  imageFilters += image.style.filter;
-  // console.log(imageFilters);
+
+  console.log(image.style.filter.valueOf(brightness));
+  // imageFilters += image.style.filter;
+  // console.log("brightness: " + image.style.filter);
 };
