@@ -53,8 +53,8 @@ opacity.onclick = () => {
     opacity_val = range.value;
   };
 
-  // imageFilters += image.style.filter;
-  console.log("opacity: " + imageFilters);
+  imageFilters = image.style.filter;
+  // console.log("opacity: " + imageFilters);
 };
 
 grayscale.onclick = () => {
@@ -67,8 +67,8 @@ grayscale.onclick = () => {
     grayscale_val = range.value;
   };
 
-  // imageFilters += image.style.filter;
-  console.log("grayscale: " + imageFilters);
+  imageFilters = image.style.filter;
+  // console.log("grayscale: " + imageFilters);
 };
 
 brightness.onclick = () => {
@@ -81,7 +81,24 @@ brightness.onclick = () => {
     brightness_val = range.value;
   };
 
-  console.log(image.style.filter.valueOf(brightness));
-  // imageFilters += image.style.filter;
+  imageFilters = image.style.filter;
+  // console.log("brightness: " + imageFilters);
   // console.log("brightness: " + image.style.filter);
+};
+
+const showButton = document.getElementById("show");
+showButton.onclick = () => {
+  let arr = imageFilters.split(" ");
+  // const sliced = arr[0].slice();
+  // const replaced = imageFilters.replace(sliced, "new value");
+  // console.log(sliced);
+  // console.log(replaced);
+  console.log(imageFilters);
+  const sliced = imageFilters.slice(
+    imageFilters.indexOf("opacity"),
+    imageFilters.indexOf(" ")
+  );
+  console.log(sliced);
+  console.log(imageFilters);
+  // console.log("showing:" + imageFilters.replace('opacity'.slice(0)));
 };
