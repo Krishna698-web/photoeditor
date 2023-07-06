@@ -47,29 +47,31 @@ const genericFilterHandler = (propertyVal) => {
   span.innerHTML = opacity_val;
   range.value = opacity_val;
 
-  const sliced = imageFilters.slice(
-    imageFilters.indexOf(propertyVal), //'propertyVal: opacity'
-    imageFilters.indexOf(" ")
-  );
-
-  // console.log("imageFilters: " + imageFilters);
   range.oninput = () => {
-    if (!imageFilters.includes(sliced)) {
-      image.style.filter = `${imageFilters} ${propertyVal}(${range.value}%)`;
-    } else {
-      imageFilters = imageFilters.replace(
+    imageFilters = image.style.filter;
+    const sliced = imageFilters.slice(
+      imageFilters.indexOf(propertyVal),
+      imageFilters.indexOf(" ")
+    );
+    console.log("sliced: ", sliced);
+
+    if (imageFilters.includes(sliced)) {
+      image.style.filter = imageFilters.replace(
         sliced,
         `${propertyVal}(${range.value}%)`
       );
-      console.log(imageFilters);
-      image.style.filter = imageFilters;
+
+      imageFilters += image.style.filter;
+
+      console.log("image filter: " + imageFilters);
+    } else {
+      image.style.filter = `${imageFilters} ${propertyVal}(${range.value})`;
     }
 
     span.innerHTML = range.value;
     opacity_val = range.value;
   };
 
-  imageFilters = image.style.filter;
   console.log("last/previous image filters: ", imageFilters);
 };
 
@@ -78,41 +80,14 @@ opacity.onclick = () => {
 };
 
 grayscale.onclick = () => {
+  // const word = "Krishna Khandelwal";
+  // console.log(word.replace("Krishna", "Om"));
   genericFilterHandler("grayscale");
 };
 
 brightness.onclick = () => {
   genericFilterHandler("brightness");
 };
-
-// grayscale.onclick = () => {
-//   span.innerHTML = grayscale_val;
-//   range.value = grayscale_val;
-
-//   range.oninput = () => {
-//     image.style.filter = `${imageFilters} grayscale(${range.value}%)`;
-//     span.innerHTML = range.value;
-//     grayscale_val = range.value;
-//   };
-
-//   imageFilters = image.style.filter;
-//   // console.log("grayscale: " + imageFilters);
-// };
-
-// brightness.onclick = () => {
-//   span.innerHTML = brightness_val;
-//   range.value = brightness_val;
-
-//   range.oninput = () => {
-//     image.style.filter = `${imageFilters} brightness(${+range.value + 100}%)`;
-//     span.innerHTML = range.value;
-//     brightness_val = range.value;
-//   };
-
-//   imageFilters = image.style.filter;
-//   // console.log("brightness: " + imageFilters);
-//   // console.log("brightness: " + image.style.filter);
-// };
 
 const showButton = document.getElementById("show");
 showButton.onclick = () => {
@@ -121,7 +96,7 @@ showButton.onclick = () => {
     imageFilters.indexOf("opacity"),
     imageFilters.indexOf(" ")
   );
-  console.log(sliced);
+  console.log(imageFilters.match("opacity"));
   // const replaced = imageFilters.replace(sliced, "new value");
   // console.log(replaced);
   console.log(imageFilters);
