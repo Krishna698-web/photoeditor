@@ -13,7 +13,7 @@ input_file.addEventListener("change", () => {
 });
 
 download_image.addEventListener("click", (e) => {
-  // e.preventDefault();
+  e.preventDefault();
   if (download_image.href === "") {
     console.log("Upload an image");
   } else {
@@ -28,77 +28,35 @@ download_image.addEventListener("click", (e) => {
 const range = document.getElementById("range");
 const inputRange = document.getElementById("inputRange");
 const span = document.getElementById("span");
-const opacity = document.getElementById("opacity");
-const grayscale = document.getElementById("grayscale");
-const brightness = document.getElementById("brightness");
 
-range.oninput = () => {
-  span.innerHTML = range.value;
+const opacity_range = document.getElementById("opacityControl");
+const grayscale_range = document.getElementById("grayscaleControl");
+const brightness_range = document.getElementById("brightnessControl");
+const contrast_range = document.getElementById("contrastControl");
+const saturate_range = document.getElementById("saturateControl");
+
+const setEffects = () => {
+  image.style.filter = `opacity(${opacity_range.value}%) 
+  brightness(${+brightness_range.value + 100}%) 
+  grayscale(${grayscale_range.value}%) 
+  saturate(${+saturate_range.value + 100}%)
+  contrast(${+contrast_range.value + 100}%)`;
+
+  console.log(image.style.filter);
 };
 
-// Initial values
-let imageFilters = "";
-
-let opacity_val = 0;
-let grayscale_val = 0;
-let brightness_val = 0;
-
-const genericFilterHandler = (propertyVal) => {
-  span.innerHTML = opacity_val;
-  range.value = opacity_val;
-
-  range.oninput = () => {
-    imageFilters = image.style.filter;
-    const sliced = imageFilters.slice(
-      imageFilters.indexOf(propertyVal),
-      imageFilters.indexOf(" ")
-    );
-    console.log("sliced: ", sliced);
-
-    if (imageFilters.includes(sliced)) {
-      image.style.filter = imageFilters.replace(
-        sliced,
-        `${propertyVal}(${range.value}%)`
-      );
-
-      imageFilters += image.style.filter;
-
-      console.log("image filter: " + imageFilters);
-    } else {
-      image.style.filter = `${imageFilters} ${propertyVal}(${range.value})`;
-    }
-
-    span.innerHTML = range.value;
-    opacity_val = range.value;
-  };
-
-  console.log("last/previous image filters: ", imageFilters);
+opacity_range.onchange = () => {
+  setEffects();
 };
-
-opacity.onclick = () => {
-  genericFilterHandler("opacity");
+brightness_range.onchange = () => {
+  setEffects();
 };
-
-grayscale.onclick = () => {
-  // const word = "Krishna Khandelwal";
-  // console.log(word.replace("Krishna", "Om"));
-  genericFilterHandler("grayscale");
+grayscale_range.onchange = () => {
+  setEffects();
 };
-
-brightness.onclick = () => {
-  genericFilterHandler("brightness");
+contrast_range.onchange = () => {
+  setEffects();
 };
-
-const showButton = document.getElementById("show");
-showButton.onclick = () => {
-  // console.log(imageFilters);
-  const sliced = imageFilters.slice(
-    imageFilters.indexOf("opacity"),
-    imageFilters.indexOf(" ")
-  );
-  console.log(imageFilters.match("opacity"));
-  // const replaced = imageFilters.replace(sliced, "new value");
-  // console.log(replaced);
-  console.log(imageFilters);
-  // console.log("showing:" + imageFilters.replace('opacity'.slice(0)));
+saturate_range.onchange = () => {
+  setEffects();
 };

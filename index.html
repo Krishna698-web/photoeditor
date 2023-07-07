@@ -23,16 +23,56 @@
         <a href="" id="download_image">Download</a>
       </div>
     </div>
+
     <div style="margin-top: 2rem">
-      Range: <span id="span">0</span>%
-      <input type="range" id="range" value="0" min="0" max="100" />
-      <div class="buttons">
-        <button id="opacity">Opacity</button>
-        <button id="grayscale">Grayscale</button>
-        <button id="brightness">brightness</button>
+      <div class="effects">
+        <div class="effect">
+          <span>Grayscale: </span>
+          <input
+            type="range"
+            id="grayscaleControl"
+            value="0"
+            min="0"
+            max="100" />
+        </div>
+        <div class="effect">
+          <span>Brightness: </span>
+          <input
+            type="range"
+            id="brightnessControl"
+            value="0"
+            min="0"
+            max="100" />
+        </div>
+        <div class="effect">
+          <span>Contrast: </span>
+          <input
+            type="range"
+            id="contrastControl"
+            value="0"
+            min="0"
+            max="100" />
+        </div>
+        <div class="effect">
+          <span>Saturate: </span>
+          <input
+            type="range"
+            id="saturateControl"
+            value="0"
+            min="100"
+            max="1000" />
+        </div>
+        <div class="effect">
+          <span>Opacity: </span>
+          <input
+            type="range"
+            id="opacityControl"
+            value="100"
+            min="0"
+            max="100" />
+        </div>
       </div>
     </div>
-    <button id="show">Show</button>
 
     <!-- demo image -->
     <!-- <img src="monk.jpg" alt="" class="image" /> -->
