@@ -32,7 +32,7 @@ const setFilters = () => {
   sepia(${tone_range.value}%)
   contrast(${+contrast_range.value + 100}%)`;
 
-  context.drawImage(image, 0, 0, 320, 500);
+  context.drawImage(image, 0, 0, 300, 550);
 };
 
 opacity_range.oninput = () => {
