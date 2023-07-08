@@ -14,8 +14,15 @@
 body {
   padding: 1rem;
 }
-img {
+#image {
   height: 20rem;
+  display: none;
+}
+
+#canvas {
+  max-height: 25rem;
+  width: 10rem;
+  object-fit: cover;
 }
 
 /*
@@ -27,7 +34,6 @@ img {
   font-weight: bold;
   border-radius: 5px;
 } */
-
-.image {
-  filter: brightness(40%) grayscale(20%);
+#mypic {
+  height: 25rem;
 }
