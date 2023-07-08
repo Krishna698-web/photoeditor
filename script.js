@@ -57,13 +57,10 @@ tone_range.oninput = () => {
 };
 
 download_image.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (download_image.href === "") {
-    console.log("Upload an image");
-  } else {
-    download_image.href = URL.createObjectURL(input_file.files[0]);
-    download_image.download = "image";
-  }
+  download_image.setAttribute("download", "edited_image.png");
 
-  console.log(download_image.href);
+  let canvasData = canvas.toDataURL("image/png");
+  canvasData.replace("image/png", "image/octet-stream");
+
+  download_image.setAttribute("href", canvasData);
 });

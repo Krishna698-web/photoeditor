@@ -25,15 +25,11 @@ body {
   object-fit: cover;
 }
 
-/*
 #download_image {
   text-decoration: none;
   padding: 1rem 2rem;
-  background: lightblue;
-  color: black;
+  background: blue;
+  color: white;
   font-weight: bold;
   border-radius: 5px;
-} */
-#mypic {
-  height: 25rem;
 }
