@@ -10,8 +10,6 @@ input_file.addEventListener("change", (e) => {
   image.src = URL.createObjectURL(e.target.files[0]);
 
   image.onload = () => {
-    // canvas.height = this.height;
-    // canvas.width = this.width;
     canvas.crossOrigin = "anonymous";
     setFilters();
   };
@@ -27,14 +25,14 @@ const saturate_range = document.getElementById("saturateControl");
 const tone_range = document.getElementById("toneControl");
 
 const setFilters = () => {
-  context.filter = `opacity(${opacity_range.value}%) 
-  brightness(${+brightness_range.value + 100}%) 
-  grayscale(${grayscale_range.value}%) 
+  context.filter = `opacity(${opacity_range.value}%)
+  brightness(${+brightness_range.value + 100}%)
+  grayscale(${grayscale_range.value}%)
   saturate(${+saturate_range.value + 100}%)
   sepia(${tone_range.value}%)
   contrast(${+contrast_range.value + 100}%)`;
 
-  context.drawImage(image, 0, 0);
+  context.drawImage(image, 0, 0, 320, 500);
 };
 
 opacity_range.oninput = () => {
@@ -61,6 +59,8 @@ download_image.addEventListener("click", (e) => {
 
   let canvasData = canvas.toDataURL("image/png");
   canvasData.replace("image/png", "image/octet-stream");
-
-  download_image.setAttribute("href", canvasData);
+  if (canvasData) {
+    download_image.setAttribute("href", canvasData);
+  }
+  download_image.click();
 });

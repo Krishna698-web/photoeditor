@@ -8,80 +8,80 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="">
-      <div id="image_uploader">
-        <input
-          type="file"
-          name="image"
-          id="input_file"
-          accept="image/jpg image/jpeg image/png" />
+    <div id="editor">
+      <div class="">
+        <div id="image_uploader">
+          <input
+            type="file"
+            name="image"
+            id="input_file"
+            accept="image/jpg image/jpeg image/png" />
+        </div>
+        <div id="image_container">
+          <img id="image" crossorigin="anonymous" height="500px" />
+          <canvas id="canvas" height="550px"></canvas>
+        </div>
       </div>
-      <div id="image_container">
-        <img id="image" crossorigin="anonymous" height="500px" />
-        <canvas id="canvas" height="500px"></canvas>
+
+      <div style="margin-top: 2rem">
+        <div class="effects">
+          <div class="effect">
+            <span>Grayscale: </span>
+            <input
+              type="range"
+              id="grayscaleControl"
+              value="0"
+              min="0"
+              max="100" />
+          </div>
+          <div class="effect">
+            <span>Brightness: </span>
+            <input
+              type="range"
+              id="brightnessControl"
+              value="0"
+              min="0"
+              max="100" />
+          </div>
+          <div class="effect">
+            <span>Contrast: </span>
+            <input
+              type="range"
+              id="contrastControl"
+              value="0"
+              min="0"
+              max="100" />
+          </div>
+          <div class="effect">
+            <span>Saturate: </span>
+            <input
+              type="range"
+              id="saturateControl"
+              value="0"
+              min="100"
+              max="200" />
+          </div>
+          <div class="effect">
+            <span>Tone: </span>
+            <input type="range" id="toneControl" value="0" min="0" max="100" />
+          </div>
+          <div class="effect">
+            <span>Opacity: </span>
+            <input
+              type="range"
+              id="opacityControl"
+              value="100"
+              min="0"
+              max="100" />
+          </div>
+        </div>
       </div>
       <div>
-        <a id="download_image">Download</a>
+        <a href="" id="download_image" class="text-3xl font-bold underline">
+          Download</a
+        >
       </div>
     </div>
-
-    <div style="margin-top: 2rem">
-      <div class="effects">
-        <div class="effect">
-          <span>Grayscale: </span>
-          <input
-            type="range"
-            id="grayscaleControl"
-            value="0"
-            min="0"
-            max="100" />
-        </div>
-        <div class="effect">
-          <span>Brightness: </span>
-          <input
-            type="range"
-            id="brightnessControl"
-            value="0"
-            min="0"
-            max="100" />
-        </div>
-        <div class="effect">
-          <span>Contrast: </span>
-          <input
-            type="range"
-            id="contrastControl"
-            value="0"
-            min="0"
-            max="100" />
-        </div>
-        <div class="effect">
-          <span>Saturate: </span>
-          <input
-            type="range"
-            id="saturateControl"
-            value="0"
-            min="100"
-            max="1000" />
-        </div>
-        <div class="effect">
-          <span>Tone: </span>
-          <input type="range" id="toneControl" value="0" min="0" max="100" />
-        </div>
-        <div class="effect">
-          <span>Opacity: </span>
-          <input
-            type="range"
-            id="opacityControl"
-            value="100"
-            min="0"
-            max="100" />
-        </div>
-      </div>
-    </div>
-
-    <!-- demo image -->
-    <!-- <img src="monk.jpg" alt="" class="image" /> -->
-
     <script src="script.js"></script>
   </body>
 </html>
