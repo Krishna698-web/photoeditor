@@ -29,7 +29,7 @@ body {
   object-fit: contain;
   margin: 15px 0 -15px 0;
   border: 10px solid #5d33ee;
-  box-shadow: 0 2px 1rem -8px black;
+  box-shadow: 0 2px 1rem -10px black;
 }
 
 .effects {
@@ -47,7 +47,18 @@ body {
   border-radius: 3px;
 }
 
-#download_image {
+.effect span {
+  width: 10%;
+  text-align: center;
+}
+
+#buttons {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+#download_image,
+#reset_image {
   text-decoration: none;
   padding: 0.7rem 2rem;
   background: #5d33ee;
@@ -56,14 +67,33 @@ body {
   margin-top: 1rem;
   letter-spacing: 1px;
   border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 50%;
+  text-align: center;
 }
 
-#download_image span {
-  margin-right: 5px;
-  font-size: 1.3rem;
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  margin-left: 5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  width: 100%;
+  background-color: #cfddff;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -3.5px;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #5d33ee;
 }
 
 @media (min-width: 770px) and (max-width: 2000px) {

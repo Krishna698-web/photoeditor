@@ -26,60 +26,65 @@
       <div style="margin-top: 2rem">
         <div class="effects">
           <div class="effect">
-            <span>Grayscale: </span>
+            <label for="grayscaleControl">Grayscale: </label>
             <input
               type="range"
               id="grayscaleControl"
               value="0"
               min="0"
               max="100" />
+            <span> <b id="grayscale_val">0</b>%</span>
           </div>
           <div class="effect">
-            <span>Brightness: </span>
+            <label for="brightnessControl">Brightness: </label>
             <input
               type="range"
               id="brightnessControl"
               value="0"
               min="0"
               max="100" />
+            <span><b id="brightness_val">0</b>%</span>
           </div>
           <div class="effect">
-            <span>Contrast: </span>
+            <label for="contrastControl">Contrast: </label>
             <input
               type="range"
               id="contrastControl"
               value="0"
               min="0"
               max="100" />
+            <span><b id="contrast_val">0</b>%</span>
           </div>
           <div class="effect">
-            <span>Saturate: </span>
+            <label for="saturateControl">Saturate: </label>
             <input
               type="range"
               id="saturateControl"
               value="0"
-              min="100"
-              max="200" />
+              min="0"
+              max="100" />
+            <span><b id="saturate_val">0</b>%</span>
           </div>
           <div class="effect">
-            <span>Tone: </span>
-            <input type="range" id="toneControl" value="0" min="0" max="100" />
+            <label for="toneControl">Tone: </label>
+            <input type="range" id="toneControl" value="0" min="0" max="200" />
+            <span><b id="tone_val">0</b>%</span>
           </div>
           <div class="effect">
-            <span>Opacity: </span>
+            <label for="opacityControl">Opacity: </label>
             <input
               type="range"
               id="opacityControl"
-              value="100"
+              value="0"
               min="0"
               max="100" />
+            <span><b id="opacity_val">100</b>%</span>
           </div>
         </div>
       </div>
-      <div>
-        <a href="" id="download_image" class="text-3xl font-bold underline">
-          Download</a
-        >
+      <div id="buttons">
+        <a href="" id="reset_image" class=""> Reset</a>
+        <a href="" id="download_image" class=""> Download</a>
       </div>
     </div>
     <script src="script.js"></script>
