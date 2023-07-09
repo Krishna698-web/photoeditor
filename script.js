@@ -33,18 +33,14 @@ const saturateVal = document.getElementById("saturate_val");
 const toneVal = document.getElementById("tone_val");
 
 const setFilters = () => {
-  context.filter = `opacity(${opacity_range.value}%)
-  brightness(${+brightness_range.value + 100}%)
+  context.filter = `brightness(${+brightness_range.value + 100}%)
+  opacity(${opacity_range.value}%)
   grayscale(${grayscale_range.value}%)
   saturate(${+saturate_range.value + 100}%)
   sepia(${tone_range.value}%)
   contrast(${+contrast_range.value + 100}%)`;
+  // console.log(context.filter);
 
-  context.drawImage(image, 0, 0, 300, 550);
-};
-
-const setOpacity = () => {
-  context.filter = `opacity(${opacity_range.value / 10}%)`;
   context.drawImage(image, 0, 0, 300, 550);
 };
 
@@ -111,6 +107,8 @@ reset_image.addEventListener("click", (e) => {
   saturate(${saturate_range.value}%)
   sepia(${tone_range.value}%)
   contrast(${contrast_range.value}%)`;
+
+  console.log(context.filter);
 
   context.drawImage(image, 0, 0, 300, 550);
 });

@@ -18,6 +18,24 @@ body {
   width: 90%;
 }
 
+input[type="file"] {
+}
+
+input[type="file"]::before {
+  content: "Upload";
+  display: block;
+  width: max-content;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  color: white;
+  box-shadow: 0 0 10px -2px darkslategray;
+  background-color: #7853fd;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
 #image {
   display: none;
 }
