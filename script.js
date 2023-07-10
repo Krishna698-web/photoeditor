@@ -18,14 +18,14 @@ input_file.addEventListener("change", (e) => {
 });
 
 // Slider Ranging
-const opacity_range = document.getElementById("opacityControl");
+const hue_range = document.getElementById("hueControl");
 const grayscale_range = document.getElementById("grayscaleControl");
 const brightness_range = document.getElementById("brightnessControl");
 const contrast_range = document.getElementById("contrastControl");
 const saturate_range = document.getElementById("saturateControl");
 const tone_range = document.getElementById("toneControl");
 
-const opacityVal = document.getElementById("opacity_val");
+const hueVal = document.getElementById("hue_val");
 const brightnessVal = document.getElementById("brightness_val");
 const grayscaleVal = document.getElementById("grayscale_val");
 const contrastVal = document.getElementById("contrast_val");
@@ -34,18 +34,17 @@ const toneVal = document.getElementById("tone_val");
 
 const setFilters = () => {
   context.filter = `brightness(${+brightness_range.value + 100}%)
-  opacity(${opacity_range.value}%)
   grayscale(${grayscale_range.value}%)
+  hue-rotate(${hue_range.value}deg)
   saturate(${+saturate_range.value + 100}%)
   sepia(${tone_range.value}%)
   contrast(${+contrast_range.value + 100}%)`;
-  // console.log(context.filter);
 
   context.drawImage(image, 0, 0, 300, 550);
 };
 
-opacity_range.oninput = () => {
-  opacityVal.innerHTML = opacity_range.value;
+hue_range.oninput = () => {
+  hueVal.innerHTML = hue_range.value;
   setFilters();
 };
 
@@ -82,12 +81,12 @@ download_image.addEventListener("click", (e) => {
   if (canvasData) {
     download_image.setAttribute("href", canvasData);
   }
-  download_image.click();
+  // download_image.click();
 });
 
 reset_image.addEventListener("click", (e) => {
   e.preventDefault();
-  opacity_range.value = 100 + "%";
+  hue_range.value = 100 + "%";
   brightness_range.value = 100 + "%";
   grayscale_range.value = 0 + "%";
   saturate_range.value = 0 + "%";
@@ -98,10 +97,10 @@ reset_image.addEventListener("click", (e) => {
   contrastVal.innerHTML = contrast_range.value;
   grayscaleVal.innerHTML = grayscale_range.value;
   brightnessVal.innerHTML = brightness_range.value;
-  opacityVal.innerHTML = opacity_range.value;
+  hueVal.innerHTML = hue_range.value;
   toneVal.innerHTML = tone_range.value;
 
-  context.filter = `opacity(${opacity_range.value}%)
+  context.filter = `hue(${hue_range.value}%)
   brightness(${brightness_range.value}%)
   grayscale(${grayscale_range.value}%)
   saturate(${saturate_range.value}%)

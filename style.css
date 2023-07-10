@@ -122,3 +122,12 @@ input[type="range"]::-webkit-slider-thumb {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+#mypic {
+  height: 20rem;
+}
+
+#myrange {
+  width: 30%;
+  margin-bottom: 2rem;
+}
