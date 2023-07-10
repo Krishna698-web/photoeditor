@@ -11,6 +11,8 @@ input_file.addEventListener("change", (e) => {
   image.src = URL.createObjectURL(e.target.files[0]);
 
   image.onload = () => {
+    this.height = image.height;
+    this.width = image.width;
     canvas.crossOrigin = "anonymous";
     setFilters();
   };
@@ -86,7 +88,7 @@ download_image.addEventListener("click", (e) => {
 
 reset_image.addEventListener("click", (e) => {
   e.preventDefault();
-  hue_range.value = 100 + "%";
+  hue_range.value = 0;
   brightness_range.value = 100 + "%";
   grayscale_range.value = 0 + "%";
   saturate_range.value = 0 + "%";

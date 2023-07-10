@@ -19,6 +19,10 @@ body {
 }
 
 input[type="file"] {
+  color: transparent;
+}
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
 }
 
 input[type="file"]::before {
@@ -29,11 +33,11 @@ input[type="file"]::before {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 1px;
   padding: 1rem 2rem;
+  margin-bottom: -1rem;
   color: white;
   box-shadow: 0 0 10px -2px darkslategray;
   background-color: #7853fd;
   cursor: pointer;
-  margin-bottom: 8px;
 }
 
 #image {
@@ -41,7 +45,7 @@ input[type="file"]::before {
 }
 
 #canvas {
-  max-height: 35rem;
+  max-height: 25rem;
   width: 100%;
   border-radius: 5px;
   object-fit: contain;
@@ -121,13 +125,4 @@ input[type="range"]::-webkit-slider-thumb {
   .effects {
     grid-template-columns: 1fr 1fr;
   }
-}
-
-#mypic {
-  height: 20rem;
-}
-
-#myrange {
-  width: 30%;
-  margin-bottom: 2rem;
 }
